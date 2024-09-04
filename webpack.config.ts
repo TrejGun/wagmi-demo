@@ -1,5 +1,5 @@
 import path from "path";
-import { Configuration, ProvidePlugin } from "webpack";
+import { Configuration } from "webpack";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin";
 import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
@@ -31,6 +31,9 @@ const config: Configuration = {
   },
   resolve: {
     extensions: [".tsx", ".ts", ".js"],
+    alias: {
+      '@tanstack/react-query': require.resolve('@tanstack/react-query').replace('index.js', 'index.cjs'),
+    }
   },
   output: {
     path: path.resolve(__dirname, "dist"), //path to output the build file

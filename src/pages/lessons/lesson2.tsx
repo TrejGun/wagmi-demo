@@ -1,26 +1,32 @@
 import { FC } from "react";
-import { useQueryClient } from "@tanstack/react-query";
-import { useDeployContract } from "wagmi";
-import { abi, bytecode } from "./ERC20OB.json";
+import { useSwitchChain } from "wagmi";
+import { Chain } from "wagmi/chains";
+import { Button, ButtonGroup } from "@mui/material";
 
 import { ITabPanelProps, TabPanel } from "../../components/tab-panel";
 
 export const Lesson2: FC<ITabPanelProps> = props => {
-  const queryClient = useQueryClient();
-  const { deployContract } = useDeployContract();
+  const { chains, switchChain } = useSwitchChain();
 
+  const handleClick = (chain: Chain) => {
+    return () => {
+      switchChain({ chainId: chain.id });
+    };
+  };
 
   return (
     <TabPanel {...props}>
-      <button
-        onClick={() =>
-          // @ts-ignore
-          // deployContract({ abi, bytecode })
-          console.log(queryClient)
-        }
-      >
-        Deploy Contract
-      </button>
+      <ButtonGroup>
+        {chains.map((chain) => (
+          <Button
+            variant="outlined"
+            key={chain.id}
+            onClick={handleClick(chain)}
+          >
+            {chain.name}
+          </Button>
+        ))}
+      </ButtonGroup>
     </TabPanel>
   );
 };

@@ -1,1 +1,1 @@
-# kamasutra-fe
+# IT-Kamasutra FE lesson
