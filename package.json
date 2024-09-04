@@ -1,0 +1,49 @@
+{
+  "author": {
+    "email": "trejgun@gemunion.io",
+    "name": "TrejGun",
+    "url": "https://gemunion.io/"
+  },
+  "dependencies": {
+    "@tanstack/react-query": "5.53.3",
+    "wagmi": "2.12.8",
+    "viem": "2.21.1",
+    "react-router-dom": "6.26.1",
+    "@emotion/react": "11.13.3",
+    "@emotion/styled": "11.13.0",
+    "@mui/material": "5.16.7",
+    "@mui/styles": "5.16.7",
+    "jss": "10.10.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "stylis": "4.3.4"
+  },
+  "description": "",
+  "devDependencies": {
+    "@pmmmwh/react-refresh-webpack-plugin": "0.5.15",
+    "@types/react-dom": "18.2.18",
+    "@types/stylis": "4.2.6",
+    "fork-ts-checker-webpack-plugin": "9.0.2",
+    "html-webpack-plugin": "5.6.0",
+    "react-refresh": "0.14.2",
+    "react-refresh-typescript": "2.0.9",
+    "ts-loader": "9.5.1",
+    "ts-node": "10.9.2",
+    "typescript": "5.5.4",
+    "webpack": "5.94.0",
+    "webpack-cli": "5.1.4",
+    "webpack-dev-server": "4.15.1"
+  },
+  "keywords": [],
+  "license": "MIT",
+  "main": "./dist/main.js",
+  "name": "kamasutra-fe",
+  "scripts": {
+    "build": "webpack --mode production",
+    "develop": "webpack-dev-server --mode development",
+    "start": "webpack serve",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "wp-build": "yarn webpack"
+  },
+  "version": "1.0.0"
+}
