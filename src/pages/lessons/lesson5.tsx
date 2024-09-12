@@ -1,34 +1,54 @@
-import { FC } from "react";
+import { FC, SyntheticEvent, useState } from "react";
 import { useAccount } from "wagmi";
 import { waitForTransactionReceipt, writeContract } from "@wagmi/core";
-import { Hash } from "viem";
-import { Button } from "@mui/material";
+import { parseEther, parseEventLogs } from "viem";
+import { Alert, Button, Snackbar, SnackbarCloseReason } from "@mui/material";
 
 import { ITabPanelProps, TabPanel } from "../../components/tab-panel";
 import { config } from "../../components/wagmi.config";
-import { abi } from "../../utils/Kamasutra.json";
+import { abi } from "../../contracts/ERC20Ownable.json";
 
 export const Lesson5: FC<ITabPanelProps> = props => {
   const { address } = useAccount();
+  const [open, setOpen] = useState(false);
+  const [txHash, setTxHash] = useState("");
+
+  const handleClose = (
+    _event?: SyntheticEvent | Event,
+    reason?: SnackbarCloseReason,
+  ) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpen(false);
+  };
 
   const handleClick = async () => {
     const { contractAddress } = JSON.parse(localStorage.getItem("token") || "{}");
-    console.log(contractAddress);
 
     const txHash = await writeContract(config, {
       abi,
       address: contractAddress,
       functionName: "mint",
-      args: [address, 1_000_000n * 1_000_000_000_000_000_000n],
+      args: [address, 1_000_000n * parseEther("1")],
     });
 
-    console.log({ txHash });
+    setTxHash(txHash);
+    setOpen(true);
 
     const transactionReceipt = await waitForTransactionReceipt(config, {
-      hash: txHash as Hash,
+      hash: txHash,
     });
 
     console.log({ transactionReceipt });
+
+    const logs = parseEventLogs({
+      abi: abi,
+      logs: transactionReceipt.logs,
+    });
+
+    console.log({ logs });
   };
 
   return (
@@ -39,6 +59,17 @@ export const Lesson5: FC<ITabPanelProps> = props => {
       >
         Mint tokens
       </Button>
+
+      <Snackbar open={open} autoHideDuration={5000} onClose={handleClose}>
+        <Alert
+          onClose={handleClose}
+          severity="success"
+          variant="filled"
+          sx={{ width: "100%" }}
+        >
+          TransactionHash: {txHash}
+        </Alert>
+      </Snackbar>
     </TabPanel>
   );
 };

@@ -1,36 +1,56 @@
-import { FC, useEffect } from "react";
+import { FC, SyntheticEvent, useEffect, useState } from "react";
 import { waitForTransactionReceipt, watchContractEvent, writeContract } from "@wagmi/core";
-import { Hash } from "viem";
-import { Button } from "@mui/material";
+import { parseEther, parseEventLogs } from "viem";
+import { Alert, Button, Snackbar, SnackbarCloseReason } from "@mui/material";
 
 import { ITabPanelProps, TabPanel } from "../../components/tab-panel";
 import { config } from "../../components/wagmi.config";
-import { abi } from "../../utils/Kamasutra.json";
+import { abi } from "../../contracts/ERC20Ownable.json";
 
 export const Lesson6: FC<ITabPanelProps> = props => {
+  const [open, setOpen] = useState(false);
+  const [txHash, setTxHash] = useState("");
+
+  const handleClose = (
+    _event?: SyntheticEvent | Event,
+    reason?: SnackbarCloseReason,
+  ) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpen(false);
+  };
+
   const handleClick = async () => {
     const { contractAddress } = JSON.parse(localStorage.getItem("token") || "{}");
-    console.log(contractAddress);
 
     const txHash = await writeContract(config, {
       abi,
       address: contractAddress,
       functionName: "transfer",
-      args: ["0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73", 10n * 1_000_000_000_000_000_000n],
+      args: ["0x627306090abaB3A6e1400e9345bC60c78a8BEf57", 10n * parseEther("1")],
     });
 
-    console.log({ txHash });
+    setTxHash(txHash);
+    setOpen(true);
 
     const transactionReceipt = await waitForTransactionReceipt(config, {
-      hash: txHash as Hash,
+      hash: txHash,
     });
 
     console.log({ transactionReceipt });
+
+    const logs = parseEventLogs({
+      abi: abi,
+      logs: transactionReceipt.logs,
+    });
+
+    console.log({ logs });
   };
 
   useEffect(() => {
     const { contractAddress } = JSON.parse(localStorage.getItem("token") || "{}");
-    console.log(contractAddress);
 
     return watchContractEvent(config, {
       address: contractAddress,
@@ -50,6 +70,17 @@ export const Lesson6: FC<ITabPanelProps> = props => {
       >
         Transfer
       </Button>
+
+      <Snackbar open={open} autoHideDuration={5000} onClose={handleClose}>
+        <Alert
+          onClose={handleClose}
+          severity="success"
+          variant="filled"
+          sx={{ width: "100%" }}
+        >
+          TransactionHash: {txHash}
+        </Alert>
+      </Snackbar>
     </TabPanel>
   );
 };

@@ -1,4 +1,6 @@
 node_modules/
+besu/
+dist/
 
 package-lock.json
 yarn.lock

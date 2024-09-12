@@ -1,1 +1,6 @@
-# IT-Kamasutra FE lesson
+# Wagmi lesson
+
+```bash
+npm i
+npm start
+```

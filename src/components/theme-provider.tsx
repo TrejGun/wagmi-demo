@@ -7,7 +7,7 @@ import { prefixer } from "stylis";
 import { create } from "jss";
 
 const cache = createCache({
-  key: "muirtl",
+  key: "mui",
   prepend: true,
   stylisPlugins: [prefixer],
 })
