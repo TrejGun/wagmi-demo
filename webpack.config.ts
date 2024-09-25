@@ -32,8 +32,8 @@ const config: Configuration = {
   resolve: {
     extensions: [".tsx", ".ts", ".js"],
     alias: {
-      '@tanstack/react-query': require.resolve('@tanstack/react-query').replace('index.js', 'index.cjs'),
-    }
+      "@tanstack/react-query": require.resolve("@tanstack/react-query").replace("index.js", "index.cjs"),
+    },
   },
   output: {
     path: path.resolve(__dirname, "dist"), //path to output the build file
@@ -50,7 +50,7 @@ const config: Configuration = {
     host: "localhost", // where to run
     historyApiFallback: true,
     port: 3000, //given port to exec. app
-    open: true,  // open new tab
+    open: true, // open new tab
   },
 };
 

@@ -1,6 +1,5 @@
 import { FC, PropsWithChildren } from "react";
 import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
 
 export interface ITabPanelProps {
   index: number;
@@ -18,11 +17,7 @@ export const TabPanel: FC<PropsWithChildren<ITabPanelProps>> = props => {
       aria-labelledby={`vertical-tab-${index}`}
       {...other}
     >
-      {value === index && (
-        <Box sx={{ p: 3 }}>
-          {children}
-        </Box>
-      )}
+      {value === index && <Box sx={{ p: 3 }}>{children}</Box>}
     </div>
   );
 };

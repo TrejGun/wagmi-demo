@@ -11,10 +11,7 @@ export const Lesson6: FC<ITabPanelProps> = props => {
   const [open, setOpen] = useState(false);
   const [txHash, setTxHash] = useState("");
 
-  const handleClose = (
-    _event?: SyntheticEvent | Event,
-    reason?: SnackbarCloseReason,
-  ) => {
+  const handleClose = (_event?: SyntheticEvent | Event, reason?: SnackbarCloseReason) => {
     if (reason === "clickaway") {
       return;
     }
@@ -39,14 +36,14 @@ export const Lesson6: FC<ITabPanelProps> = props => {
       hash: txHash,
     });
 
-    console.log({ transactionReceipt });
+    console.info({ transactionReceipt });
 
     const logs = parseEventLogs({
       abi: abi,
       logs: transactionReceipt.logs,
     });
 
-    console.log({ logs });
+    console.info({ logs });
   };
 
   useEffect(() => {
@@ -57,27 +54,19 @@ export const Lesson6: FC<ITabPanelProps> = props => {
       abi,
       eventName: "Transfer",
       onLogs(logs) {
-        console.log("New logs!", logs);
+        console.info("New logs!", logs);
       },
     });
   }, []);
 
   return (
     <TabPanel {...props}>
-      <Button
-        variant="outlined"
-        onClick={handleClick}
-      >
+      <Button variant="outlined" onClick={handleClick}>
         Transfer
       </Button>
 
       <Snackbar open={open} autoHideDuration={5000} onClose={handleClose}>
-        <Alert
-          onClose={handleClose}
-          severity="success"
-          variant="filled"
-          sx={{ width: "100%" }}
-        >
+        <Alert onClose={handleClose} severity="success" variant="filled" sx={{ width: "100%" }}>
           TransactionHash: {txHash}
         </Alert>
       </Snackbar>

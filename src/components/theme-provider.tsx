@@ -10,30 +10,30 @@ const cache = createCache({
   key: "mui",
   prepend: true,
   stylisPlugins: [prefixer],
-})
+});
 
 const jss = create({
   plugins: [...jssPreset().plugins],
-})
+});
 
 const theme = createTheme({
   palette: {
     mode: "light",
   },
-})
+});
 
 export const ThemeProvider: FC<PropsWithChildren> = props => {
-    const { children } = props;
-    return (
-      <CacheProvider value={cache}>
-          <StylesProvider jss={jss}>
-              <StyledEngineProvider injectFirst>
-                  <MuiThemeProvider theme={theme}>
-                      <CssBaseline />
-                      {children}
-                  </MuiThemeProvider>
-              </StyledEngineProvider>
-          </StylesProvider>
-      </CacheProvider>
-    );
+  const { children } = props;
+  return (
+    <CacheProvider value={cache}>
+      <StylesProvider jss={jss}>
+        <StyledEngineProvider injectFirst>
+          <MuiThemeProvider theme={theme}>
+            <CssBaseline />
+            {children}
+          </MuiThemeProvider>
+        </StyledEngineProvider>
+      </StylesProvider>
+    </CacheProvider>
+  );
 };

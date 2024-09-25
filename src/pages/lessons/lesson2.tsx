@@ -17,12 +17,8 @@ export const Lesson2: FC<ITabPanelProps> = props => {
   return (
     <TabPanel {...props}>
       <ButtonGroup>
-        {chains.map((chain) => (
-          <Button
-            variant="outlined"
-            key={chain.id}
-            onClick={handleClick(chain)}
-          >
+        {chains.map(chain => (
+          <Button variant="outlined" key={chain.id} onClick={handleClick(chain)}>
             {chain.name}
           </Button>
         ))}

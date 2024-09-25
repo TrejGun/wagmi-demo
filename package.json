@@ -2,28 +2,35 @@
   "author": {
     "email": "trejgun@gmail.com",
     "name": "TrejGun",
-    "url": "https://gemunion.io/"
+    "url": "https://ethberry.io/"
   },
   "dependencies": {
+    "@emotion/cache": "11.13.1",
     "@emotion/react": "11.13.3",
     "@emotion/styled": "11.13.0",
     "@mui/material": "6.1.0",
     "@mui/styles": "6.1.0",
     "@tanstack/react-query": "5.53.3",
+    "@wagmi/core": "2.13.7",
+    "ajv": "8.17.1",
     "jss": "10.10.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "stylis": "4.3.4",
     "viem": "2.21.1",
-    "wagmi": "2.12.8"
+    "wagmi": "2.12.14"
   },
   "description": "",
   "devDependencies": {
+    "@ethberry/eslint-config": "5.0.2",
     "@pmmmwh/react-refresh-webpack-plugin": "0.5.15",
     "@types/react-dom": "18.2.18",
     "@types/stylis": "4.2.6",
     "fork-ts-checker-webpack-plugin": "9.0.2",
     "html-webpack-plugin": "5.6.0",
+    "husky": "4.3.8",
+    "lint-staged": "15.2.10",
+    "prettier": "3.3.3",
     "react-refresh": "0.14.2",
     "react-refresh-typescript": "2.0.9",
     "ts-loader": "9.5.1",
@@ -33,14 +40,19 @@
     "webpack-cli": "5.1.4",
     "webpack-dev-server": "4.15.1"
   },
+  "engines": {
+    "node": ">=22"
+  },
   "keywords": [],
   "license": "MIT",
   "main": "./dist/main.js",
-  "name": "wagmi-lesson",
+  "name": "wagmi-demo",
   "scripts": {
     "build": "webpack --mode production",
+    "lint": "eslint . --fix",
+    "prettier": "prettier . --write",
     "start": "webpack serve",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 0"
   },
   "version": "1.0.0"
 }

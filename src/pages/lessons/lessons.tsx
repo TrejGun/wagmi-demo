@@ -17,7 +17,13 @@ export const Lessons: FC = () => {
 
   return (
     <Box
-      sx={{ flexGrow: 1, bgcolor: "background.paper", display: "flex", minHeight: "100%", pt: 11 }}
+      sx={{
+        flexGrow: 1,
+        bgcolor: "background.paper",
+        display: "flex",
+        minHeight: "100%",
+        pt: 11,
+      }}
     >
       <Tabs
         orientation="vertical"
@@ -41,4 +47,4 @@ export const Lessons: FC = () => {
       <Lesson6 value={value} index={5} />
     </Box>
   );
-}
+};

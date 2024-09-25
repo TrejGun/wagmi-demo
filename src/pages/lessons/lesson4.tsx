@@ -13,10 +13,7 @@ export const Lesson4: FC<ITabPanelProps> = props => {
   const [open, setOpen] = useState(false);
   const [balance, setBalance] = useState(0n);
 
-  const handleClose = (
-    _event?: SyntheticEvent | Event,
-    reason?: SnackbarCloseReason,
-  ) => {
+  const handleClose = (_event?: SyntheticEvent | Event, reason?: SnackbarCloseReason) => {
     if (reason === "clickaway") {
       return;
     }
@@ -40,21 +37,13 @@ export const Lesson4: FC<ITabPanelProps> = props => {
 
   return (
     <TabPanel {...props}>
-      <Button
-        variant="outlined"
-        onClick={handleClick}
-      >
+      <Button variant="outlined" onClick={handleClick}>
         Get balance
       </Button>
 
       <Snackbar open={open} autoHideDuration={5000} onClose={handleClose}>
-        <Alert
-          onClose={handleClose}
-          severity="success"
-          variant="filled"
-          sx={{ width: "100%" }}
-        >
-          Balance: Ξ{formatEther(balance)}
+        <Alert onClose={handleClose} severity="success" variant="filled" sx={{ width: "100%" }}>
+          Balance: Ξ {formatEther(balance)}
         </Alert>
       </Snackbar>
     </TabPanel>

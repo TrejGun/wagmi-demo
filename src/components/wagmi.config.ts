@@ -3,7 +3,7 @@ import { createConfig, http } from "wagmi";
 import { mainnet } from "wagmi/chains";
 import { metaMask } from "wagmi/connectors";
 
-export const gemunion = defineChain({
+export const ethberry = defineChain({
   id: 10001,
   name: "Besu",
   nativeCurrency: {
@@ -25,10 +25,10 @@ export const gemunion = defineChain({
 });
 
 export const config = createConfig({
-  chains: [mainnet, gemunion],
+  chains: [mainnet, ethberry],
   connectors: [metaMask()],
   transports: {
     [mainnet.id]: http(),
-    [gemunion.id]: http(),
+    [ethberry.id]: http(),
   },
 });
