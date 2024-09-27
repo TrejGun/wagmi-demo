@@ -17,12 +17,12 @@
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "stylis": "4.3.4",
-    "viem": "2.21.14",
+    "viem": "2.21.15",
     "wagmi": "2.12.14"
   },
   "description": "",
   "devDependencies": {
-    "@ethberry/eslint-config": "5.0.2",
+    "@ethberry/eslint-config": "5.0.3",
     "@pmmmwh/react-refresh-webpack-plugin": "0.5.15",
     "@types/react-dom": "18.3.0",
     "@types/stylis": "4.2.6",
