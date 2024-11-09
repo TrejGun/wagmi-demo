@@ -10,15 +10,15 @@
     "@emotion/styled": "11.13.0",
     "@mui/material": "6.1.6",
     "@mui/styles": "6.1.6",
-    "@tanstack/react-query": "5.59.16",
-    "@wagmi/core": "2.14.1",
+    "@tanstack/react-query": "5.59.20",
+    "@wagmi/core": "2.14.4",
     "ajv": "8.17.1",
     "jss": "10.10.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "stylis": "4.3.4",
-    "viem": "2.21.38",
-    "wagmi": "2.12.25"
+    "viem": "2.21.44",
+    "wagmi": "2.12.29"
   },
   "description": "",
   "devDependencies": {
