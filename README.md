@@ -1,4 +1,4 @@
-# Wagmi lesson
+# Wagmi demo
 
 ```bash
 docker compose up -d 
