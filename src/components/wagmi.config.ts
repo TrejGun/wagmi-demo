@@ -4,7 +4,7 @@ import { mainnet } from "wagmi/chains";
 import { metaMask } from "wagmi/connectors";
 
 export const ethberry = defineChain({
-  id: 10001,
+  id: 10000,
   name: "Besu",
   nativeCurrency: {
     name: "Besu",

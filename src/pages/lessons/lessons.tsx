@@ -2,8 +2,8 @@ import { FC, SyntheticEvent, useState } from "react";
 import { Box, Tab, Tabs } from "@mui/material";
 
 import { Lesson1 } from "./lesson1";
-import { Lesson3 } from "./lesson3";
 import { Lesson2 } from "./lesson2";
+import { Lesson3 } from "./lesson3";
 import { Lesson4 } from "./lesson4";
 import { Lesson5 } from "./lesson5";
 import { Lesson6 } from "./lesson6";
