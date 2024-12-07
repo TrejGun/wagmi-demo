@@ -14,8 +14,8 @@
     "@wagmi/core": "2.15.2",
     "ajv": "8.17.1",
     "jss": "10.10.0",
-    "react": "18.3.1",
-    "react-dom": "18.3.1",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
     "stylis": "4.3.4",
     "viem": "2.21.54",
     "wagmi": "2.13.4"
@@ -24,7 +24,7 @@
   "devDependencies": {
     "@ethberry/eslint-config": "5.0.4",
     "@pmmmwh/react-refresh-webpack-plugin": "0.5.15",
-    "@types/react-dom": "18.3.2",
+    "@types/react-dom": "19.0.1",
     "@types/stylis": "4.2.7",
     "fork-ts-checker-webpack-plugin": "9.0.2",
     "html-webpack-plugin": "5.6.3",
