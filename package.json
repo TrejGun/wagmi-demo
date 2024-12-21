@@ -17,7 +17,7 @@
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "stylis": "4.3.4",
-    "viem": "2.21.55",
+    "viem": "2.21.56",
     "wagmi": "2.14.3"
   },
   "description": "",
