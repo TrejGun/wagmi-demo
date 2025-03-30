@@ -1,6 +1,6 @@
 import { defineChain } from "viem";
 import { createConfig, http } from "wagmi";
-import { mainnet } from "wagmi/chains";
+import { mainnet, polygon } from "wagmi/chains";
 import { metaMask } from "wagmi/connectors";
 
 export const ethberry = defineChain({
@@ -25,10 +25,11 @@ export const ethberry = defineChain({
 });
 
 export const config = createConfig({
-  chains: [mainnet, ethberry],
+  chains: [mainnet, polygon, ethberry],
   connectors: [metaMask()],
   transports: {
     [mainnet.id]: http(),
+    [polygon.id]: http(),
     [ethberry.id]: http(),
   },
 });
