@@ -9,20 +9,20 @@
     "@emotion/react": "11.14.0",
     "@emotion/styled": "11.14.0",
     "@mui/material": "7.1.1",
-    "@tanstack/react-query": "5.79.0",
-    "@wagmi/core": "2.17.2",
+    "@tanstack/react-query": "5.80.6",
+    "@wagmi/core": "2.17.3",
     "ajv": "8.17.1",
     "react": "19.1.0",
     "react-dom": "19.1.0",
-    "viem": "2.30.5",
-    "wagmi": "2.15.4"
+    "viem": "2.31.0",
+    "wagmi": "2.15.6"
   },
   "description": "",
   "devDependencies": {
     "@ethberry/eslint-config": "5.0.5",
     "@pmmmwh/react-refresh-webpack-plugin": "0.6.0",
-    "@types/react": "19.1.6",
-    "@types/react-dom": "19.1.5",
+    "@types/react": "19.1.7",
+    "@types/react-dom": "19.1.6",
     "fork-ts-checker-webpack-plugin": "9.1.0",
     "html-webpack-plugin": "5.6.3",
     "husky": "9.1.7",
@@ -35,7 +35,7 @@
     "typescript": "5.8.3",
     "webpack": "5.99.9",
     "webpack-cli": "6.0.1",
-    "webpack-dev-server": "5.2.1"
+    "webpack-dev-server": "5.2.2"
   },
   "engines": {
     "node": ">=22"
